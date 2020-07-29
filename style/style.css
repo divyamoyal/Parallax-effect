@@ -41,101 +41,93 @@ h1 {
     left: 0;
     right: 0;
     top: -340px;
-    transition: top 2s linear; 
 }
 
 .banner img {
     max-height: 100%;
-    /* margin-top: 340px;
-    transition: margin-top 2s linear; */
+
 }
 
 .banner h1 {
     color: #fff;
     width: max-content;
     text-transform: uppercase;
-    /* margin-top: 340px;
-    transition: margin-top 3s ease-out; */
+
+}
+
+.banner .content {
+    font-size: 14px;
+    margin: 0px auto;
+    padding: 20px;
+    color: #fff;
+    opacity: 0;
+    margin-top: 85px;
+    text-align: center;
+}
+
+.banner .link {
+    background: #405c6a; color:#fff;padding: 12px 17px;
+    font-size: 14px; border:0px; text-decoration: none;
+    display: inline-block;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    margin-top: 20px;
 }
 
 /* currently visible banner */
 
 .active h1 {
-    /* margin-top: 0;
-    transition-delay: 1s;
-    transition: margin-top 4s ease-in-out; */
-    animation: centerText 6s  ease-in-out;
+    animation: bannerTitle 10s  ease-in-out;
 }
 
 .active img {  
-    /* margin-top: 0;
-    transition: margin-top 2s linear; */
-    animation: move 5s  ease-in-out;
+    animation: move 8s  ease-in-out;
 }
 .recent img {
     margin-top: -340px;
     transition: margin-top 2s linear;
 }
+.active .content {
+    animation: bannerContent 8s  ease-in-out;
+}
 .active {
     z-index: 1;
-
 }
-
 .slide {
-    animation: banner 6s ease-in-out;
-
+    animation: banner 7s ease-in-out;
 }
 
-/* 
-.active {
-    top: 0;
-    transition: top 2s linear;
-} */
+/* animation for images inside every banner container */
 
 @keyframes move {
-    0% {
-        margin-top: 340px;
-    }
-  
-    /* Finish changes by here */
-    20% {
-      margin-top: 0px;
-    }
-    100% {
-        margin-top: 0px;
-    }
-    /* Between 20% and 100%, nothing changes */
-
+    0% { margin-top: 340px; }
+    20% { margin-top: 0px; }
+    100% { margin-top: 0px; }
   }
 
-  @keyframes centerText {
-    0% {
-        margin-top: 340px;
-    }
-  
-    /* Finish changes by here */
-    20% {
-      margin-top: 0px;
-    }
-    100% {
-        margin-top: 0px;
-    }
-    /* Between 20% and 100%, nothing changes */
+  /* animation for title in slide */
 
+  @keyframes bannerTitle {
+    0% { margin-top: 340px; }
+    20% { margin-top: 0px; }
+    40% { margin-top: 0px; }
+    100% { margin-top: 340px; }
   }
+/* animation to move banner up*/
 
   @keyframes banner {
-    0% {
-        top: 0;
-    }
-  
-    /* Finish changes by here */
-    50% {
-      top: 0px;
-    }
-    100% {
-        top: -340px;
-    }
-    /* Between 20% and 100%, nothing changes */
+    0% { top: 0;}
+    50% { top: 0px;}
+    100% { top: -340px;}
+  }
 
+/* animation banner content */
+
+  @keyframes bannerContent {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    40% { opacity: 0.8; }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
   }
