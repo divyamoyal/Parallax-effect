@@ -36,35 +36,106 @@ h1 {
 
 .banner {
     height: 100%;
-    position: relative;
     height: 340px;
-    top: auto;
-    transition: top 4s ease-out;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -340px;
+    transition: top 2s linear; 
 }
 
 .banner img {
     max-height: 100%;
-    transition: top 2s linear;
-    top: 100%;
+    /* margin-top: 340px;
+    transition: margin-top 2s linear; */
 }
 
 .banner h1 {
     color: #fff;
-    margin: 100% 0 0 0;
-    transition-delay: 1s;
-    transition: margin 4s ease-out;
+    width: max-content;
+    text-transform: uppercase;
+    /* margin-top: 340px;
+    transition: margin-top 3s ease-out; */
 }
 
 /* currently visible banner */
 
 .active h1 {
-    margin: 0;
+    /* margin-top: 0;
     transition-delay: 1s;
-    transition: margin 4s ease-out;
+    transition: margin-top 4s ease-in-out; */
+    animation: centerText 6s  ease-in-out;
 }
 
 .active img {  
-    top: 50%;
-    transition: top 2s linear;
+    /* margin-top: 0;
+    transition: margin-top 2s linear; */
+    animation: move 5s  ease-in-out;
+}
+.recent img {
+    margin-top: -340px;
+    transition: margin-top 2s linear;
+}
+.active {
+    z-index: 1;
+
 }
 
+.slide {
+    animation: banner 6s ease-in-out;
+
+}
+
+/* 
+.active {
+    top: 0;
+    transition: top 2s linear;
+} */
+
+@keyframes move {
+    0% {
+        margin-top: 340px;
+    }
+  
+    /* Finish changes by here */
+    20% {
+      margin-top: 0px;
+    }
+    100% {
+        margin-top: 0px;
+    }
+    /* Between 20% and 100%, nothing changes */
+
+  }
+
+  @keyframes centerText {
+    0% {
+        margin-top: 340px;
+    }
+  
+    /* Finish changes by here */
+    20% {
+      margin-top: 0px;
+    }
+    100% {
+        margin-top: 0px;
+    }
+    /* Between 20% and 100%, nothing changes */
+
+  }
+
+  @keyframes banner {
+    0% {
+        top: 0;
+    }
+  
+    /* Finish changes by here */
+    50% {
+      top: 0px;
+    }
+    100% {
+        top: -340px;
+    }
+    /* Between 20% and 100%, nothing changes */
+
+  }

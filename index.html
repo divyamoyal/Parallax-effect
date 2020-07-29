@@ -7,15 +7,21 @@
     <body>
         <div class="wrapper">
             <!-- 1st banner-->
-            <div class="banner">
-                <img src="images/bg_2.jpg" alt="banner" class="center">
+            <div class="banner " id='banner_1'>
+                <img src="images/bg_1.jpg" alt="banner" class="center">
                 <h1 class="center">GO BEYOND</h1>
                 <img src="images/bg_2_font_layer_trans.png" alt="banner" class="center">
             </div>
-            <!-- 2nd banner-->
-            <div class="banner">
+            <!-- 2st banner-->
+            <div class="banner " id='banner_1'>
+                <img src="images/bg_2.jpg" alt="banner" class="center">
+                <h1 class="center">Discover</h1>
+                <img src="images/bg_2_font_layer_trans.png" alt="banner" class="center">
+            </div>
+            <!-- 3nd banner-->
+            <div class="banner " id="banner_2">
                 <img src="images/bg_3.jpg" alt="banner" class="center">
-                <h1 class="center">Test</h1>
+                <h1 class="center">Text Here</h1>
                 <img src="images/bg_3_front_layer.png" alt="banner" class="center">
             </div>
             
@@ -28,24 +34,23 @@
             }, false);
 
             // adding class active to animate banner's inner elements
+            var slideIndex = 0;
             function bannerAnimation () {
                 var bannerArr = document.getElementsByClassName('banner');
                 console.log(bannerArr[0], bannerArr.length);
                 var size = bannerArr.length;
-                for(let i=0; i<size; i++) {
-                    var activeElem = document.getElementsByClassName('active');
-                    if(activeElem.length > 0) { activeElem[0].classList.remove("active"); }
-                    setTimeout(() => {
-                        bannerArr[i].classList.add('active');
-                    }, 100);
-                    // bannerArr[i].animate([{top:'-100%'}], {
-                    //     duration: 1500,
-                    //     iterations: 1,
-                    //     delay: 5000
-                    // });
-                }
+                    for (var i = 0; i < bannerArr.length; i++) {
+                        bannerArr[i].className = bannerArr[i].className.replace(" active", " ");
+                        bannerArr[i].className = bannerArr[i].className.replace(" slide", " ");
+                    }
+                    slideIndex++;
+                    if (slideIndex > bannerArr.length) {slideIndex = 1}
+                    bannerArr[slideIndex-1].className += " active";
+                    bannerArr[slideIndex-1].className += " slide";
+                    setTimeout(bannerAnimation, 8000);
+
             }
-            
+
         </script>
     </body>
 </html>
