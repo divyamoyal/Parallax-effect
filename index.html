@@ -55,17 +55,21 @@
             var slideIndex = 0;
             function bannerAnimation () {
                 var bannerArr = document.getElementsByClassName('banner');
-                console.log(bannerArr[0], bannerArr.length);
-                var size = bannerArr.length;
-                    for (var i = 0; i < bannerArr.length; i++) {
-                        bannerArr[i].className = bannerArr[i].className.replace(" active", " ");
-                        bannerArr[i].className = bannerArr[i].className.replace(" slide", " ");
-                    }
+                    removeClassOnSlide(bannerArr);
                     slideIndex++;
                     if (slideIndex > bannerArr.length) {slideIndex = 1}
-                    bannerArr[slideIndex-1].className += " active";
-                    bannerArr[slideIndex-1].className += " slide";
-                    setTimeout(bannerAnimation, 8000);
+                    addClassOnCurrentSlide(bannerArr);
+                    setTimeout(bannerAnimation, 6000);
+            }
+            function removeClassOnSlide(classArr) {
+                for (var i = 0; i < classArr.length; i++) {
+                    classArr[i].className = classArr[i].className.replace(" active", " ");
+                    classArr[i].className = classArr[i].className.replace(" slide", " ");
+                }
+            }
+            function addClassOnCurrentSlide(classArr) {
+                    classArr[slideIndex-1].className += " active";
+                    classArr[slideIndex-1].className += " slide";
             }
 
         </script>
