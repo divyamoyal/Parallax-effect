@@ -2,16 +2,16 @@
 <html>
     <head>
         <title>Parallax Effect</title>
-        <link href="style/style.css" rel="stylesheet" type="text/css" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div class="wrapper">
             <!-- 1st banner-->
-            <div class="banner " id='banner_1'>
+            <div class="banner b1" id='banner_1'>
                 <img src="images/bg_1.jpg" alt="banner" class="center">
-                <h1 class="center">GO BEYOND</h1>
-                <img src="images/bg_2_font_layer_trans.png" alt="banner" class="center">
-                <div class="content center">
+                <h1 class=" center">GO BEYOND</h1>
+                <img src="images/bg_1_front_layer_transparent.png" alt="banner" class="center">
+                <div class="content  center">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Cum nemo laboriosam quas rerum odit
                        ullam inventore labore illo nulla,
                     </p>
@@ -19,11 +19,11 @@
                  </div>
             </div>
             <!-- 2st banner-->
-            <div class="banner " id='banner_1'>
+            <div class="banner b2" id='banner_2'>
                 <img src="images/bg_2.jpg" alt="banner" class="center">
                 <h1 class="center">Discover</h1>
                 <img src="images/bg_2_font_layer_trans.png" alt="banner" class="center">
-                <div class="content center">
+                <div class="content  center">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Cum nemo laboriosam quas rerum odit
                        ullam inventore labore illo nulla,
                     </p>
@@ -31,11 +31,11 @@
                  </div>
             </div>
             <!-- 3nd banner-->
-            <div class="banner " id="banner_2">
-                <img src="images/bg_3.jpg" alt="banner" class="center">
+            <div class="banner b3" id="banner_3">
+                <img src="images/bg_3.jpg" alt="banner" class="center ">
                 <h1 class="center">Text Here</h1>
                 <img src="images/bg_3_front_layer.png" alt="banner" class="center">
-                <div class="content center">
+                <div class="content  center">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Cum nemo laboriosam quas rerum odit
                        ullam inventore labore illo nulla,
                     </p>
@@ -44,35 +44,8 @@
             </div>
             
         </div>
-        <script>
-
-            document.addEventListener('DOMContentLoaded', function() {
-            // document ready
-                bannerAnimation();
-            }, false);
-
-            // adding class active to animate banner's inner elements
-            var slideIndex = 0;
-            function bannerAnimation () {
-                var bannerArr = document.getElementsByClassName('banner');
-                    removeClassOnSlide(bannerArr);
-                    slideIndex++;
-                    if (slideIndex > bannerArr.length) {slideIndex = 1}
-                    addClassOnCurrentSlide(bannerArr);
-                    setTimeout(bannerAnimation, 6000);
-            }
-            function removeClassOnSlide(classArr) {
-                for (var i = 0; i < classArr.length; i++) {
-                    classArr[i].className = classArr[i].className.replace(" active", " ");
-                    classArr[i].className = classArr[i].className.replace(" slide", " ");
-                }
-            }
-            function addClassOnCurrentSlide(classArr) {
-                    classArr[slideIndex-1].className += " active";
-                    classArr[slideIndex-1].className += " slide";
-            }
-
-        </script>
+        <!-- Script files -->
+        <script src="script/script.js"></script>
     </body>
 </html>
 

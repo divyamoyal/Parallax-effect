@@ -8,6 +8,11 @@
     background:transparent;
 }
 
+body,
+html{
+    height: 100%;
+}
+
 body {
     font-size: 14px;
     line-height:1;
@@ -29,30 +34,33 @@ h1 {
 /* layout style */
 .wrapper {
     position: relative;
-    height: 340px;
+    height: 100%;
     width: 100%;
     overflow: hidden;
 }
 
 .banner {
-    height: 100%;
-    height: 340px;
-    position: absolute;
+    height: 100vh;
     left: 0;
     right: 0;
-    top: -340px;
+    top:0;
+    position: relative;
+    overflow: hidden;
 }
 
 .banner img {
     max-height: 100%;
-
 }
 
 .banner h1 {
     color: #fff;
     width: max-content;
     text-transform: uppercase;
-
+    font-family: sans-serif;
+    font-size: 6em;
+    text-transform: uppercase;
+    margin-top: 100%;
+    transition: margin-top 1.5s ease-in-out;
 }
 
 .banner .content {
@@ -61,7 +69,7 @@ h1 {
     padding: 20px;
     color: #fff;
     opacity: 0;
-    margin-top: 85px;
+    margin-top: 90px;
     text-align: center;
 }
 
@@ -78,48 +86,46 @@ h1 {
 /* currently visible banner */
 
 .active h1 {
-    animation: bannerTitle 10s  ease-in-out;
-}
-
-.active img {  
-    animation: move 8s  ease-in-out;
-}
-.recent img {
-    margin-top: -340px;
-    transition: margin-top 2s linear;
+    margin-top: 0;
+    transition-delay: 1s;
+    transition: margin-top 2s ease-in-out;
+    transition-delay: 1s;
 }
 .active .content {
-    animation: bannerContent 8s  ease-in-out;
+    animation: bannerContent 9s  ease-in-out;
 }
 .active {
     z-index: 1;
 }
-.slide {
-    animation: banner 7s ease-in-out;
+.banner {
+    animation-delay: 0.5s;
+    animation-name: banner;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
 }
 
-/* animation for images inside every banner container */
-
-@keyframes move {
-    0% { margin-top: 340px; }
-    20% { margin-top: 0px; }
-    100% { margin-top: 0px; }
-  }
+.b1 {
+    transform: translate(100%);
+}
 
   /* animation for title in slide */
 
   @keyframes bannerTitle {
-    0% { margin-top: 340px; }
-    20% { margin-top: 0px; }
-    40% { margin-top: 0px; }
-    100% { margin-top: 340px; }
+    0% { margin-top: 100%; }
+    30% { margin-top: 0px; }
+    70% { margin-top: 0px; }
+    100% { margin-top: 100%; }
   }
 /* animation to move banner up*/
 
   @keyframes banner {
-    0% { top: 0;}
-    50% { top: 0px;}
-    100% { top: -340px;}
+    0% { transform: translateY(60%);}
+    10% { transform: translateY(0);}
+    33.33% { transform: translateY(0);}
+    43.33% { transform: translateY(-100%);}
+    66.33% { transform: translateY(-100%);}
+    76.33% { transform: translateY(-200%);}
+    100% { transform: translateY(-200%);}
   }
 
 /* animation banner content */
